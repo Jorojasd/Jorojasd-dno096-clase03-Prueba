@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title> PRUEBA </title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+        <link rel="stylesheet" href="style.css"
+    </head>
+
+    <body>
+        <header>
+            <p>
+                    <a href="index.html">Bienvenide</a>
+                    <a href="page_caledo.html">Caledoscopio</a>
+                    <a href="page_condi.html" class="activo">Condiciones</a>
+                    <a href="page_poem.html">Poema Aleatorio</a>
+                    <a href="page_orbit.html">Orbit Control</a>                    
+            </p>
+            <h1>Condiciones</h1>       
+        </header>
+        <main>
+        </main>
+        <aside>
+            <button onclick ="foto()" >Imprime</button>
+        </aside>
+        <script>
+
+let circlePositionX = 800;
+let circlePositionY = 450;
+
+let circleSpeedX = 6;
+let circleSpeedY = 6;
+
+let circleRadius = 25;
+
+let circleHue = 2;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+
+
+  background('#000000');
+
+
+  ellipseMode(RADIUS);
+
+
+  colorMode(HSB);
+
+    
+  strokeWeight(0);
+
+  describe(
+    'A circle starts in the center of the canvas. When the user holds the mouse down, the circle bounces around the canvas, its inside switches between black and white, and its outline fades between colors, leaving a rainbow trail.'
+  );
+}
+ function draw() {
+            stroke(circleHue, 80, 90);
+
+
+            if (circlePositionX >= 100 && circlePositionX <= width - 100) {
+                fill(circleHue, 80, 90);
+            }
+
+           
+            circle(circlePositionX, circlePositionY, circleRadius);
+
+            // Si el mouse no está presionado, animar el boceto
+            if (!mouseIsPressed) {
+                circlePositionX += circleSpeedX;
+                circlePositionY += circleSpeedY;
+
+                // Aumentar el tono en 1
+                circleHue = (circleHue + 1) % 360;
+            }
+
+            // Si el círculo se va más allá de los bordes izquierdo o derecho
+            if (
+                circlePositionX < circleRadius ||
+                circlePositionX > width - circleRadius
+            ) {
+                // Invertir la velocidad horizontal
+                circleSpeedX = -circleSpeedX;
+            }
+
+            // Si el círculo se va más allá de los bordes superior o inferior
+            if (
+                circlePositionY < circleRadius ||
+                circlePositionY > height - circleRadius
+            ) {
+                // Invertir la velocidad vertical
+                circleSpeedY = -circleSpeedY;
+            }
+        }
+
+        function foto (){
+                saveCanvas('Condiciones.jpg');
+} 
+        </script>
+    </body>
+
+</html>

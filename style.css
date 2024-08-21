@@ -1,0 +1,53 @@
+        html,body {
+                font-family: Helvetica, Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                cursor: crosshair;
+            }
+            
+            canvas {
+                display: block;
+            }
+            
+            header {
+                position: absolute;
+                top: 1rem;
+                left: 3rem;
+                z-index: 2;
+                width:calc(100vw * 0.28);
+                color: #999999;
+            }
+
+            @media (orientation: landscape){
+                header {
+                    width:calc(100vw * 0.5);                    
+                }
+            }
+
+            p{
+                line-height:2;
+                color: #999999;
+            }
+
+            code{
+                color:#999999;
+                font-size:1rem;
+            }
+
+            aside{
+                z-index: 2;
+                position: absolute;
+                left: 1rem;
+                botttom: 1rem;
+            }
+
+            a{
+                color:white;
+                text-decoration: none;
+                margin-right: 2rem;
+            }
+
+            a.activo{
+                font-weight: bold;
+                text-decoration: underline;
+            } 
